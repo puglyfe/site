@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Hisense",
+    "color": "#ddd",
+    "images": [
+      "http://placehold.it/800",
+      "http://placehold.it/800/fff"
+    ],
+    "info": {
+      "url": "http://hisense-usa.com",
+      "agency": "Olson",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tech": []
+    }
+  },
+  {
+    "title": "Sharp",
+    "color": "#ccc",
+    "images": [
+      "http://placehold.it/800",
+      "http://placehold.it/800/fff"
+    ],
+    "info": {
+      "url": "http://sharptvusa.com",
+      "agency": "Olson",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tech": []
+    }
+  },
+  {
+    "title": "Jonathan Chapman",
+    "color": "#bbb",
+    "images": [
+      "http://placehold.it/800",
+      "http://placehold.it/800/fff"
+    ],
+    "info": {
+      "url": "http://jonathanchapman.com",
+      "agency": "Clear",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "tech": []
+    }
+  }
+]

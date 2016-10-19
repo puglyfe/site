@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  - var projects = locals.data;
+
+  mixin project-card(project)
+    section.project-card(style='background-color: #{project.color}')
+      .project-card__header.js-project-open
+        h2.project-card__title= project.title
+      .project-card__content.project-content
+        .project-content__info
+          .project-content__title= project.title
+          p.project-content__info= project.info.description
+          a.project-content__link(href=project.info.url, target='_blank') visit site
+        if project.images.length
+          .project-content__images-wrapper
+            for image in project.images
+              .project-content__image(style='background-image: url(#{image})')
+
+  div.projects-wrapper
+    for project in projects
+      +project-card(project)
