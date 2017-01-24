@@ -1,0 +1,38 @@
+//
+// Typography
+// --------------------------------------------------
+
+html {
+  @include fluid-type(font-size, map-get($breakpoints, 'xs'), map-get($breakpoints, 'lg'), 16px, 20px);
+}
+
+body {
+  font-family: $font-sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+// Links
+a {
+  // color: $link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    // color: $link-hover-color;
+    // text-decoration: $link-hover-decoration;
+  }
+}
+
+// reset all header sizes. specify sizes as needed.
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-serif;
+  font-size: 1.33em;
+  font-weight: 900;
+  margin: 0;
+}

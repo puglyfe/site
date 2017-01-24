@@ -1,44 +1,40 @@
 [
   {
     "title": "Hisense",
-    "color": "#ddd",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "images": [
+      "/img/projects/hisense/hisense-comp.png",
+      "/img/projects/hisense/hisense-comp.png"
+    ],
+    "attributes": {
+      "agency": "Olson",
+      "cms": "Drupal 8"
+    },
+    "url": "http://hisense-usa.com"
+  },
+  {
+    "title": "Puppybowl",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "images": [
       "http://placehold.it/800",
       "http://placehold.it/800/fff"
     ],
-    "info": {
-      "url": "http://hisense-usa.com",
+    "attributes": {
       "agency": "Olson",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "tech": []
+      "tech": "React, RxJS, ES6 (Babel)"
     }
   },
   {
-    "title": "Sharp",
-    "color": "#ccc",
+    "title": "BCM",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "images": [
       "http://placehold.it/800",
       "http://placehold.it/800/fff"
     ],
-    "info": {
-      "url": "http://sharptvusa.com",
+    "attributes": {
       "agency": "Olson",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "tech": []
-    }
-  },
-  {
-    "title": "Jonathan Chapman",
-    "color": "#bbb",
-    "images": [
-      "http://placehold.it/800",
-      "http://placehold.it/800/fff"
-    ],
-    "info": {
-      "url": "http://jonathanchapman.com",
-      "agency": "Clear",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "tech": []
-    }
+      "tech": "Angular, Karma"
+    },
+    "url": "http://findaphysician.bcm.edu"
   }
 ]

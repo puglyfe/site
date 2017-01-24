@@ -7,11 +7,12 @@ html
     meta(name='description', content='description of your site')
     meta(name='author', content= "author of the site")
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(href="https://fonts.googleapis.com/css?family=Merriweather|Oswald", rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Merriweather:400,900|Open+Sans", rel="stylesheet")
     title= _path
     != css()
 
   body
     block content
-
+    
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js")
     != js()

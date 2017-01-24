@@ -2,21 +2,50 @@ extends layout
 
 block content
   - var projects = locals.data;
+  - var links = []
+  - links.push({title: 'Github', url: 'http://github.com/puglyfe'})
+  - links.push({title: 'Twitter', url: 'http://twitter.com/puglyfepuglyfe'})
+  
+  mixin social-link(link)
+    li.bio__link
+      a(href=link.url, target='_blank')= link.title
+      
+  mixin project-attribute(key, value)
+    if value
+      h4.project-card__subhead= key
+      p.project-card__attribute= value
 
   mixin project-card(project)
-    section.project-card(style='background-color: #{project.color}')
-      .project-card__header.js-project-open
-        h2.project-card__title= project.title
-      .project-card__content.project-content
-        .project-content__info
-          .project-content__title= project.title
-          p.project-content__info= project.info.description
-          a.project-content__link(href=project.info.url, target='_blank') visit site
+    article.projects__card.project-card.js-project-open
+      .project-card__container
+        .project-card__info.js-project-info
+          h2.project-card__title.js-project-title= project.title
+          .project-card__copy
+            p.project-copy__description= project.description
+            for val, key in project.attributes
+              +project-attribute(key, val)
+            if project.url
+              a.project-card__link(href=project.url, target='_blank') visit site
+                include /img/icon-arrow.svg
         if project.images.length
-          .project-content__images-wrapper
+          .project-card__image-container
             for image in project.images
-              .project-content__image(style='background-image: url(#{image})')
+              .project-card__image(style='background-image: url(#{image})')
 
-  div.projects-wrapper
+  header
+    button.context-toggle.js-context-toggle
+      span.context-toggle__icon
+      span.context-toggle__text i
+  
+  section.bio
+    .bio__wrapper
+      h1 Hi. I'm Charley.
+      p Here are some selected projects that I've worked on recently. Look at them. Feel free to get in touch.
+      h3.email.js-email(data-user='ctpugmire', data-domain='gmail.com')
+      ul.bio__links
+        for link in links
+          +social-link(link)
+        
+  section.projects
     for project in projects
       +project-card(project)

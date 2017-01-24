@@ -1,0 +1,27 @@
+.bio {
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__link {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+
+      &:hover {
+        color: darken($color-white, 10%);
+      }
+    }
+  }
+}

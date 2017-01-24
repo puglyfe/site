@@ -1,0 +1,216 @@
+.project-card {
+  background: $color-white;
+  color: $color-white;
+  cursor: pointer;
+
+  &:not(:first-child) {
+    border-top: 1px solid $color-gray;
+
+    @include media('>=md') {
+      border-top: 0;
+      border-left: 1px solid $color-gray;
+    }
+  }
+
+  &:not(.project-card--open) {
+    &:hover {
+      .project-card__title {
+        &:after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through $project-count {
+    &:nth-of-type(#{$i}) {
+      transform: translateY(((100 / $project-count) * ($i - 1)) * 1%);
+
+      @include media('>=md') {
+        transform: translateX(((100 / $project-count) * ($i - 1)) * 1%);
+        transition-delay: .1s * ($project-count - $i);
+      }
+    }
+
+    .bio-active & {
+      &:nth-of-type(#{$i}) {
+        transform: translateY((60 + ((40 / $project-count) * ($i - 1))) * 1%);
+
+        @include media('>=md') {
+          transform: translate(((100 / $project-count) * ($i - 1)) * 1%, 60%);
+          transition-delay: .1s * ($i - 1);
+        }
+
+        &:hover {
+          transform: translateY((58 + ((40 / $project-count) * ($i - 1))) * 1%);
+
+          @include media('>=md') {
+            transform: translate(((100 / $project-count) * ($i - 1)) * 1%, 60%);
+          }
+        }
+      }
+    }
+  }
+
+  &__container {
+    // padding: 20px;
+    position: relative;
+    height: 33.33333%;
+
+    @include media('>=md') {
+      align-items: stretch;
+      display: flex;
+      height: 100%;
+    }
+  }
+
+  &__title {
+    color: $color-gray;
+    display: inline-block;
+    font-size: 2.4rem;
+    margin: 0;
+    position: absolute;
+    transition: color .15s ease-in-out;
+
+    &:after {
+      content: '';
+      background-color: $color-gray;
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(0);
+      transition: transform .35s ease-in-out;
+      z-index: -1;
+    }
+
+    .project-card--open & {
+      color: $color-white;
+
+      &:after {
+        transform: scale(20);
+      }
+    }
+  }
+
+  &__copy {
+    margin-top: 50px;
+    opacity: 0;
+    position: relative;
+    transform: translateY(10px);
+    transition: opacity .15s, transform .15s;
+
+    .project-card--open & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: .55s;
+    }
+  }
+
+  &__info,
+  &__copy {
+    overflow: hidden;
+
+    @include media('>=md') {
+      height: 100%;
+    }
+  }
+
+  &__info {
+    margin: 30px;
+    padding: 45px 15px;
+    position: relative;
+
+    @include media('>=md') {
+      // padding-top: 25vh;
+      padding: 25vh 36px 36px;
+      flex: 0 0 calc(33.33333% - 60px);
+    }
+  }
+
+  &__subhead {
+    line-height: 1;
+    text-transform: capitalize;
+  }
+
+  &__attribute {
+    margin: 0 0 25px;
+  }
+
+  &__link {
+    color: $color-white;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    white-space: nowrap;
+    z-index: 1;
+
+    > svg {
+      height: 20px;
+      margin-left: 5px;
+      transform: translateX(3px);
+      transition: transform .15s ease-in-out;
+      will-change: transform;
+    }
+
+    &:hover {
+      color: darken($color-white, 10%);
+
+      > svg {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__image-container {
+    @include media('>=md') {
+      margin-left: 33.33333%;
+      flex: 0 0 66.66667%;
+    }
+  }
+
+  &__image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 0;
+    margin: 25px 0;
+    padding-bottom: 64.593301%;
+  }
+
+  &--open {
+
+    .project-card {
+
+      &__info {
+        @include media('>=md') {
+          float: left;
+          width: 33.33333%;
+        }
+      }
+
+      &__container,
+      &__copy {
+        height: 100%;
+      }
+    }
+  }
+
+  &.project-card--open {
+    min-height: 100vh;
+    overflow: auto;
+    transform: translate(0);
+
+    &~ .project-card {
+      transform: translateY(100%);
+
+      @include media('>=md') {
+        transform: translateX(100%);
+      }
+    }
+  }
+}

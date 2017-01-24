@@ -1,6 +1,3 @@
-axis         = require 'axis'
-rupture      = require 'rupture'
-autoprefixer = require 'autoprefixer-stylus'
 js_pipeline  = require 'js-pipeline'
 css_pipeline = require 'css-pipeline'
 
@@ -8,19 +5,24 @@ module.exports =
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore', 'ship.*conf']
 
   extensions: [
-    js_pipeline(files: 'assets/js/*.coffee'),
-    css_pipeline(files: 'assets/css/*.styl')
+    js_pipeline(files: ['assets/js/*.js', 'assets/js/*.coffee'], out: 'js/main.js'),
+    css_pipeline(files: 'assets/css/*.scss', out: 'css/main.css')
   ]
-
-  stylus:
-    use: [axis(), rupture(), autoprefixer()]
-    sourcemap: true
 
   'coffee-script':
     sourcemap: true
 
+  jade:
+    basedir: 'public'
+    pretty: true
+
+  scss:
+    includePaths: [
+      'node_modules/normalize-scss/sass/'
+      'node_modules/include-media/dist/',
+      'node_modules/include-media-grid-mixins/',
+    ]
+    outputStyle: 'compressed'
+
   locals:
     data: require './data/data.json'
-
-  jade:
-    pretty: true
