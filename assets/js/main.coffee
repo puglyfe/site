@@ -4,7 +4,15 @@ selectors = {
   projectOpen: '.js-project-open',
   projectTitle: '.js-project-title',
   email: '.js-email'
-};
+}
+
+animationProps = {
+  duration: {
+    short: .15,
+    med: .35
+  },
+  easing: Power1.easeInOut
+}
 
 $refs = Object.keys(selectors).reduce(((obj, current) ->
   obj[current] = $(selectors[current])
@@ -13,8 +21,13 @@ $refs = Object.keys(selectors).reduce(((obj, current) ->
 
 TweenLite.set($refs.projectTitle, {left: '50%', top: '50%', x: '-50%', y: '-50%'})
 
+bindEscape = () ->
+  $(document).on 'keyup.attachEscape', (e) ->
+    if (e.keyCode == 27)
+      $refs.contextToggle.click()
+      $(document).off 'keyup.attachEscape'
+
 $refs.projectOpen.click ->
-  console.log('openProject')
   $this = $(this)
   $info = $this.find(selectors.projectInfo)
   $title = $this.find(selectors.projectTitle)
@@ -25,22 +38,31 @@ $refs.projectOpen.click ->
     left: infoStyles.getPropertyValue('padding-left')
   }
 
-  $this.addClass('project-card--open')
+  bindEscape()
+  $this.addClass('project-card--open').find('.project-card__image-container').scrollTop(0)
   $('body').removeClass('bio-active').addClass('project-active')
-  TweenLite.to($title, .35, {left: offset.left, top: offset.top, x: '0%', y: '0%'})
+  TweenLite.to($title, animationProps.duration.med, {left: offset.left, top: offset.top, x: '0%', y: '0%'})
 
 $refs.contextToggle.click ->
   console.log('toggleNav')
   $this = $(this)
   $body = $('body')
+
+  # remove any existing ESC bindings
+  $(document).off 'keyup.attachEscape'
+
   if $body.hasClass('project-active')
+    # close project, center titles
     $body.removeClass('project-active')
     $(selectors.projectOpen).removeClass('project-card--open')
-    TweenLite.to($refs.projectTitle, .35, {left: '50%', top: '50%', x: '-50%', y: '-50%'})
+    TweenLite.to($refs.projectTitle, animationProps.duration.med, {left: '50%', top: '50%', x: '-50%', y: '-50%'})
   else if $body.hasClass('bio-active')
+    # close bio, center titles
     $body.removeClass('bio-active')
-    TweenLite.to($refs.projectTitle, .35, {top: '50%'})
+    TweenLite.to($refs.projectTitle, animationProps.duration.med, {top: '50%'});
   else
+    # open bio, move titles.
+    bindEscape()
     $body.addClass('bio-active')
     TweenLite.to($refs.projectTitle, .35, {top: $refs.projectInfo.css('padding-top')})
 

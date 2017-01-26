@@ -4,7 +4,8 @@
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "images": [
       "/img/projects/hisense/hisense-comp.png",
-      "/img/projects/hisense/hisense-comp.png"
+      "/img/projects/hisense/hisense-category-comp.png",
+      "/img/projects/hisense/hisense-product-comp.png"
     ],
     "attributes": {
       "agency": "Olson",
@@ -16,8 +17,7 @@
     "title": "Puppybowl",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "images": [
-      "http://placehold.it/800",
-      "http://placehold.it/800/fff"
+      "/img/projects/puppybowl/puppybowl-gameday-comp.png"
     ],
     "attributes": {
       "agency": "Olson",
@@ -28,8 +28,8 @@
     "title": "BCM",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "images": [
-      "http://placehold.it/800",
-      "http://placehold.it/800/fff"
+      "/img/projects/bcm/findaphysician-comp.png",
+      "/img/projects/bcm/findaphysician-results-comp.png"
     ],
     "attributes": {
       "agency": "Olson",

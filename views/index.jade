@@ -19,7 +19,8 @@ block content
     article.projects__card.project-card.js-project-open
       .project-card__container
         .project-card__info.js-project-info
-          h2.project-card__title.js-project-title= project.title
+          h2.project-card__title.js-project-title
+            span(data-content= project.title)= project.title
           .project-card__copy
             p.project-copy__description= project.description
             for val, key in project.attributes
@@ -30,7 +31,8 @@ block content
         if project.images.length
           .project-card__image-container
             for image in project.images
-              .project-card__image(style='background-image: url(#{image})')
+              .project-card__image
+                img(src=image)
 
   header
     button.context-toggle.js-context-toggle
