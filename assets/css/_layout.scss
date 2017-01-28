@@ -32,8 +32,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       background-color: $color-white;
       content: '';
       opacity: 0;
@@ -46,26 +46,26 @@ body {
       transition: opacity .15s ease-in-out, transform .15s ease-in-out;
     }
 
-    &:before {
+    &::before {
       transform: rotate(90deg);
     }
 
-    &:after {
+    &::after {
       transform: rotate(-90deg);
     }
 
     .bio-active &,
     .project-active & {
-      &:before,
-      &:after {
+      &::before,
+      &::after {
         opacity: 1;
       }
 
-      &:before {
+      &::before {
         transform: rotate(45deg);
       }
 
-      &:after {
+      &::after {
         transform: rotate(-45deg);
       }
     }
@@ -96,7 +96,7 @@ body {
   left: 0;
   width: 100%;
   height: 60%;
-  transition: opacity 0s .15s ease-in;
+  transition: opacity 0s .35s ease-in;
   z-index: 1;
 
   .bio-active & {
@@ -109,7 +109,7 @@ body {
     max-width: 960px;
     padding: 0 15px;
     transform: translateY(50%);
-    transition: transform .15s ease-in-out;
+    transition: transform .35s ease-in-out;
 
     .bio-active & {
       transform: translateY(0);
@@ -130,7 +130,7 @@ body {
     top: 0;
     left: 0;
     transform: translateZ(0);
-    transition: transform 0.35s ease-in-out;
+    transition: transform .35s ease-in-out;
     width: 100%;
     z-index: 2;
   }
@@ -139,7 +139,7 @@ body {
 .email {
   cursor: pointer;
 
-  &:before {
-    content: attr(data-user) "\0040" attr(data-domain);
+  &::before {
+    content: attr(data-user) '\0040' attr(data-domain);
   }
 }

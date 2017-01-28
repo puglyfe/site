@@ -1,7 +1,7 @@
 selectors = {
   contextToggle: '.js-context-toggle',
+  project: '.js-project',
   projectInfo: '.js-project-info',
-  projectOpen: '.js-project-open',
   projectTitle: '.js-project-title',
   email: '.js-email'
 }
@@ -27,10 +27,10 @@ bindEscape = () ->
       $refs.contextToggle.click()
       $(document).off 'keyup.attachEscape'
 
-$refs.projectOpen.click ->
-  $this = $(this)
-  $info = $this.find(selectors.projectInfo)
-  $title = $this.find(selectors.projectTitle)
+$refs.projectTitle.click ->
+  $title = $(this)
+  $project = $title.closest(selectors.project)
+  $info = $title.closest(selectors.projectInfo)
 
   infoStyles = window.getComputedStyle($info.get(0))
   offset = {
@@ -39,12 +39,11 @@ $refs.projectOpen.click ->
   }
 
   bindEscape()
-  $this.addClass('project-card--open').find('.project-card__image-container').scrollTop(0)
+  $project.addClass('project-card--open').find('.project-card__image-container').scrollTop(0)
   $('body').removeClass('bio-active').addClass('project-active')
   TweenLite.to($title, animationProps.duration.med, {left: offset.left, top: offset.top, x: '0%', y: '0%'})
 
 $refs.contextToggle.click ->
-  console.log('toggleNav')
   $this = $(this)
   $body = $('body')
 
@@ -54,7 +53,7 @@ $refs.contextToggle.click ->
   if $body.hasClass('project-active')
     # close project, center titles
     $body.removeClass('project-active')
-    $(selectors.projectOpen).removeClass('project-card--open')
+    $(selectors.project).removeClass('project-card--open')
     TweenLite.to($refs.projectTitle, animationProps.duration.med, {left: '50%', top: '50%', x: '-50%', y: '-50%'})
   else if $body.hasClass('bio-active')
     # close bio, center titles
@@ -67,5 +66,4 @@ $refs.contextToggle.click ->
     TweenLite.to($refs.projectTitle, .35, {top: $refs.projectInfo.css('padding-top')})
 
 $refs.email.click ->
-  console.log('email');
   window.location.href = 'mailto:ctpugmire@gmail.com';

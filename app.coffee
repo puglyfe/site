@@ -19,8 +19,7 @@ module.exports =
   scss:
     includePaths: [
       'node_modules/normalize-scss/sass/'
-      'node_modules/include-media/dist/',
-      'node_modules/include-media-grid-mixins/',
+      'node_modules/include-media/dist/'
     ]
     outputStyle: 'compressed'
 
