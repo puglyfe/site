@@ -1,3 +1,6 @@
+$ = require('zepto-browserify').$
+TweenLite = require('gsap')
+
 selectors = {
   contextToggle: '.js-context-toggle',
   project: '.js-project',
@@ -19,7 +22,10 @@ $refs = Object.keys(selectors).reduce(((obj, current) ->
   obj
 ), {})
 
-TweenLite.set($refs.projectTitle, {left: '50%', top: '50%', x: '-50%', y: '-50%'})
+TweenLite.set(
+  $refs.projectTitle,
+  { left: '50%', top: '50%', x: '-50%', y: '-50%' }
+)
 
 bindEscape = () ->
   $(document).on 'keyup.attachEscape', (e) ->
@@ -32,16 +38,30 @@ $refs.projectTitle.click ->
   $project = $title.closest(selectors.project)
   $info = $title.closest(selectors.projectInfo)
 
-  infoStyles = window.getComputedStyle($info.get(0))
-  offset = {
-    top: infoStyles.getPropertyValue('padding-top'),
-    left: infoStyles.getPropertyValue('padding-left')
-  }
+  handleResize = () ->
+    infoStyles = window.getComputedStyle($info.get(0))
+    offset = {
+      top: infoStyles.getPropertyValue('padding-top'),
+      left: infoStyles.getPropertyValue('padding-left')
+    }
+
+    TweenLite.to(
+      $title,
+      animationProps.duration.med,
+      { left: offset.left, top: offset.top, x: '0%', y: '0%' }
+    )
+
+  $project
+    .addClass('project-card--open')
+    .find('.project-card__image-container')
+    .scrollTop(0)
+
+  $('body').removeClass('bio-active').addClass('project-active')
 
   bindEscape()
-  $project.addClass('project-card--open').find('.project-card__image-container').scrollTop(0)
-  $('body').removeClass('bio-active').addClass('project-active')
-  TweenLite.to($title, animationProps.duration.med, {left: offset.left, top: offset.top, x: '0%', y: '0%'})
+  handleResize()
+
+  $(window).on 'resize.placeTitle', handleResize
 
 $refs.contextToggle.click ->
   $this = $(this)
@@ -49,21 +69,39 @@ $refs.contextToggle.click ->
 
   # remove any existing ESC bindings
   $(document).off 'keyup.attachEscape'
+  $(window).off 'resize.placeTitle'
 
   if $body.hasClass('project-active')
     # close project, center titles
     $body.removeClass('project-active')
+
     $(selectors.project).removeClass('project-card--open')
-    TweenLite.to($refs.projectTitle, animationProps.duration.med, {left: '50%', top: '50%', x: '-50%', y: '-50%'})
+
+    TweenLite.to(
+      $refs.projectTitle,
+      animationProps.duration.med,
+      { left: '50%', top: '50%', x: '-50%', y: '-50%' }
+    )
   else if $body.hasClass('bio-active')
     # close bio, center titles
     $body.removeClass('bio-active')
-    TweenLite.to($refs.projectTitle, animationProps.duration.med, {top: '50%'});
+
+    TweenLite.to(
+      $refs.projectTitle,
+      animationProps.duration.med,
+      { top: '50%' }
+    )
   else
     # open bio, move titles.
     bindEscape()
+
     $body.addClass('bio-active')
-    TweenLite.to($refs.projectTitle, .35, {top: $refs.projectInfo.css('padding-top')})
+
+    TweenLite.to(
+      $refs.projectTitle,
+      animationProps.duration.med,
+      { top: $refs.projectInfo.css('padding-top') }
+    )
 
 $refs.email.click ->
-  window.location.href = 'mailto:ctpugmire@gmail.com';
+  window.location.href = 'mailto:ctpugmire@gmail.com'
