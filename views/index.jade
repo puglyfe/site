@@ -3,8 +3,10 @@ extends layout
 block content
   - var projects = locals.data;
   - var links = []
-  - links.push({title: 'Github', url: 'http://github.com/puglyfe'})
-  - links.push({title: 'Twitter', url: 'http://twitter.com/puglyfepuglyfe'})
+  - links.push({title: 'Github', url: 'https://github.com/puglyfe'})
+  - links.push({title: 'Codepen', url: 'https://codepen.io/puglyfe'})
+  - links.push({title: 'Linkedin', url: 'https://linkedin.com/in/charleypugmire'})
+  - links.push({title: 'Twitter', url: 'https://twitter.com/puglyfepuglyfe'})
   
   mixin social-link(link)
     li.bio__link
@@ -41,12 +43,17 @@ block content
   
   section.bio
     .bio__wrapper
-      h1 Hi. I'm Charley.
-      p Here are some selected projects that I've worked on recently. Look at them. Feel free to get in touch.
-      h3.email.js-email(data-user='ctpugmire', data-domain='gmail.com')
-      ul.bio__links
-        for link in links
-          +social-link(link)
+      h1.bio__title Hi. I'm Charley.
+      p I'm a developer based in Saint Paul, Minnesota. I like making cool things for the internet. I currently work with the smart people at #[a(href='http://olson.com', target='_blank') Olson].
+      p I also like to make music as #[a(href='http://soundcloud.com/champagnemusique', target='_blank') Champagne] and #[a(href='http://soundcloud.com/tylerhampton', target='_blank') Tyler Hampton].
+      p This site features a small selection of recent projects, but there's also a huge selection not featured here. For example, if you want a custom Spotify playlist based on a picture of your face, I got you. 
+      p If anything catches your eye, don't hesitate to get in touch.
+      
+      .bio__contact
+        h3.email.js-email(data-user='ctpugmire', data-domain='gmail.com')
+        ul.bio__links
+          for link in links
+            +social-link(link)
         
   section.projects
     for project in projects

@@ -48,3 +48,15 @@ $color-gray:                    #323031;
 
 $color-blue:                    #0075ab;
 $color-blue-secondary:          #0056a9;
+
+//
+// Animation
+//--------------------------------------------------
+
+$animation-short:               .15s;
+$animation-med:                 .35s;
+$animation-long:                .55s;
+
+$animation-stagger:             .1s;
+
+$easing-default:                ease-in-out;

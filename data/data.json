@@ -1,7 +1,7 @@
 [
   {
     "title": "Hisense",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "description": "The largest technology company you've never heard of needed to make a splashy entrance into the North American Market, so we built them a site unlike anything else in the consumer electronics space.",
     "images": [
       "/img/projects/hisense/hisense-comp.png",
       "/img/projects/hisense/hisense-category-comp.png",
@@ -15,7 +15,7 @@
   },
   {
     "title": "Puppybowl",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "description": "Bissell knows that #PetHappens, so we built them a second-screen experience for the Puppybowl so you could watch cute puppies make big messes without having to worry about any of the cleanup.",
     "images": [
       "/img/projects/puppybowl/puppybowl-gameday-comp.png"
     ],
@@ -26,14 +26,14 @@
   },
   {
     "title": "BCM",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "description": "Searching for a doctor can be an intimidating experience. We helped Baylor College of Medicine simplify the process so patients can search for a physician on their terms.",
     "images": [
       "/img/projects/bcm/findaphysician-comp.png",
       "/img/projects/bcm/findaphysician-results-comp.png"
     ],
     "attributes": {
       "agency": "Olson",
-      "tech": "Angular, Karma"
+      "tech": "Angular, Elasticsearch, Karma"
     },
     "url": "http://findaphysician.bcm.edu"
   }

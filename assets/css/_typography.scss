@@ -14,13 +14,33 @@ body {
 
 // Links
 a {
-  // color: $link-color;
-  text-decoration: none;
+  // styles for plain, inline links.
+  &:not([class]) {
+    color: inherit;
+    position: relative;
+    text-decoration: none;
 
-  &:hover,
-  &:focus {
-    // color: $link-hover-color;
-    // text-decoration: $link-hover-decoration;
+    &::after {
+      content: '';
+      border-bottom: 1px solid $color-white;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(2px);
+      transition-duration: $animation-med;
+      transition-property: opacity, transform;
+      transition-timing-function: $easing-default;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
 }
 

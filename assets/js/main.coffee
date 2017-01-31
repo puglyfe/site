@@ -2,6 +2,7 @@ $ = require('zepto-browserify').$
 TweenLite = require('gsap')
 
 selectors = {
+  body: 'body',
   contextToggle: '.js-context-toggle',
   project: '.js-project',
   projectInfo: '.js-project-info',
@@ -51,12 +52,11 @@ $refs.projectTitle.click ->
       { left: offset.left, top: offset.top, x: '0%', y: '0%' }
     )
 
+  $refs.body.removeClass('bio-active').addClass('project-active')
   $project
     .addClass('project-card--open')
-    .find('.project-card__image-container')
-    .scrollTop(0)
-
-  $('body').removeClass('bio-active').addClass('project-active')
+    .find('.project-card__container')[0]
+    .scrollTop = 0;  # scrollTop setter not available in this version of zepto :(
 
   bindEscape()
   handleResize()
@@ -65,15 +65,14 @@ $refs.projectTitle.click ->
 
 $refs.contextToggle.click ->
   $this = $(this)
-  $body = $('body')
 
   # remove any existing ESC bindings
   $(document).off 'keyup.attachEscape'
   $(window).off 'resize.placeTitle'
 
-  if $body.hasClass('project-active')
+  if $refs.body.hasClass('project-active')
     # close project, center titles
-    $body.removeClass('project-active')
+    $refs.body.removeClass('project-active')
 
     $(selectors.project).removeClass('project-card--open')
 
@@ -82,9 +81,9 @@ $refs.contextToggle.click ->
       animationProps.duration.med,
       { left: '50%', top: '50%', x: '-50%', y: '-50%' }
     )
-  else if $body.hasClass('bio-active')
+  else if $refs.body.hasClass('bio-active')
     # close bio, center titles
-    $body.removeClass('bio-active')
+    $refs.body.removeClass('bio-active')
 
     TweenLite.to(
       $refs.projectTitle,
@@ -95,7 +94,7 @@ $refs.contextToggle.click ->
     # open bio, move titles.
     bindEscape()
 
-    $body.addClass('bio-active')
+    $refs.body.addClass('bio-active')
 
     TweenLite.to(
       $refs.projectTitle,

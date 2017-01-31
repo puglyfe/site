@@ -17,7 +17,7 @@
 
       @include media('>=md') {
         transform: translateX(((100 / $project-count) * ($i - 1)) * 1%);
-        transition-delay: .1s * ($project-count - $i);
+        transition-delay: $animation-stagger * ($project-count - $i);
       }
     }
 
@@ -27,12 +27,10 @@
 
         @include media('>=md') {
           transform: translate(((100 / $project-count) * ($i - 1)) * 1%, 60%);
-          transition-delay: .1s * ($i - 1);
+          transition-delay: $animation-stagger * ($i - 1);
         }
 
         &:hover {
-          transform: translateY((58 + ((40 / $project-count) * ($i - 1))) * 1%);
-
           @include media('>=md') {
             transform: translate(((100 / $project-count) * ($i - 1)) * 1%, 60%);
           }
@@ -73,19 +71,19 @@
       top: 0;
       right: 0;
       transform: scaleX(0);
-      transition: transform .35s ease-in-out;
+      transition: transform .25s $easing-default;
       z-index: -1;
     }
 
     &:hover {
       &::after {
         transform: scaleX(1);
-        transition-delay: .35s;
+        transition-delay: .25s;
       }
 
       span {
         &::before {
-          transition-delay: .35s;
+          transition-delay: .25s;
           width: 100%;
         }
 
@@ -109,7 +107,7 @@
         position: absolute;
         left: 0;
         width: 0;
-        transition: width .35s ease-in-out;
+        transition: width .25s $easing-default;
         white-space: nowrap;
         will-change: width;
         z-index: 1;
@@ -125,7 +123,7 @@
         top: 50%;
         left: 0;
         transform: translate(-100%, -50%);
-        transition: transform .35s ease-in-out .35s;
+        transition: transform .25s $easing-default .25s;
         z-index: 1;
       }
     }
@@ -140,8 +138,10 @@
 
       span {
         &::before {
-          transition-delay: 0s;
-          transition-duration: 0s;
+          transition: {
+            delay: 0s;
+            duration: 0s;
+          };
           width: 100%;
         }
 
@@ -157,7 +157,10 @@
     opacity: 0;
     position: relative;
     transform: translateY(10px);
-    transition: opacity .15s, transform .15s;
+    transition: {
+      duration: $animation-short;
+      property: opacity, transform;
+    };
 
     .project-card--open & {
       opacity: 1;
@@ -211,7 +214,7 @@
       height: 20px;
       margin-left: 5px;
       transform: translateX(3px);
-      transition: transform .15s ease-in-out;
+      transition: transform $animation-short $easing-default;
       will-change: transform;
     }
 
@@ -230,7 +233,7 @@
       margin-left: 33.33333%;
       opacity: 0;
       width: 66.66667%;
-      transition: opacity .35s ease-in-out;
+      transition: opacity $animation-med $easing-default;
 
       .project-card--open & {
         opacity: 1;
