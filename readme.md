@@ -1,17 +1,14 @@
-# Charley Pugmire
+# charleypugmire.me
 
+This is a site about me.
 
+It's built with:
 
-### Setup
-
-- make sure [node.js](http://nodejs.org) and [roots](http://roots.cx) are installed
-- clone this repo down and `cd` into the folder
-- run `npm install`
-- run `roots watch`
-- ???
-- get money
-
-### Deploying
-
-- If you just want to compile the production build, run `roots compile -e production` and it will build to public.
-- To deploy your site with a single command, run `roots deploy -to XXX` with `XXX` being whichever [ship](https://github.com/carrot/ship#usage) deployer you want to use.
+- [roots](http://roots.cx/)
+- [sass](http://sass-lang.com/)
+- [postcss](http://postcss.org/)
+- [autoprefixer](https://github.com/postcss/autoprefixer)
+- [coffeescript](http://coffeescript.org/)
+- [jade](http://jade-lang.com/)
+- [browserify](http://browserify.org/)
+- [gitlab](http://gitlab.com/)

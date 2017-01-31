@@ -1,7 +1,8 @@
 {
-  "name": "-charley-pugmire",
-  "description": "",
+  "name": "charleypugmire.me",
+  "description": "A site built with roots.",
   "dependencies": {
+    "autoprefixer": "^6.7.1",
     "coffee-script": "1.x",
     "css-pipeline": "0.3.x",
     "gsap": "^1.19.1",
@@ -11,6 +12,7 @@
     "marked": "0.3.x",
     "node-sass": "^4.1.1",
     "normalize-scss": "^6.0.0",
+    "postcss": "^5.2.11",
     "roots-browserify": "^0.6.0",
     "zepto-browserify": "^1.0.0"
   }
