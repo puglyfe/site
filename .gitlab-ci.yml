@@ -1,21 +1,6 @@
 image: node:4.7.2
 
-build_dev:
-  cache:
-    paths:
-    - node_modules/
-
-  script:
-  - npm install -g gulp-cli
-  - npm install
-  - gulp build
-  artifacts:
-    paths:
-    - public
-  only:
-    - develop
-
-build_prod:
+pages:
   cache:
     paths:
     - node_modules/
