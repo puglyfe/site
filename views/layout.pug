@@ -8,10 +8,10 @@ html
     meta(name='author', content= "Charley Pugmire")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(href="https://fonts.googleapis.com/css?family=Merriweather:400,900|Open+Sans", rel="stylesheet")
-    title= _path
-    != css()
+    title Hi. I'm Charley.
+    link(href="/css/main.css", rel="stylesheet")
 
   body
     block content
 
-    != browserify()
+    script(src="/js/build.js")

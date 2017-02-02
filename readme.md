@@ -4,11 +4,10 @@ This is a site about me.
 
 It's built with:
 
-- [roots](http://roots.cx/)
+- [gulp](http://gulpjs.com/)
 - [sass](http://sass-lang.com/)
-- [postcss](http://postcss.org/)
-- [autoprefixer](https://github.com/postcss/autoprefixer)
 - [coffeescript](http://coffeescript.org/)
-- [jade](http://jade-lang.com/)
+- [pug](http://pugjs.org/)
 - [browserify](http://browserify.org/)
 - [gitlab](http://gitlab.com/)
+- + many others
