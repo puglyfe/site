@@ -13,7 +13,7 @@ build_dev:
     paths:
     - public
   only:
-    - master
+    - develop
 
 build_prod:
   cache:
