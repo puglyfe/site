@@ -136,7 +136,8 @@ gulp.task('build:templates', function () {
     .pipe($.pug({
       basedir: 'public',
       locals: {
-        data: require('./data/data.json')
+        data: require('./data/data.json'),
+        social: require('./data/social.json')
       },
       pretty: true
     }))

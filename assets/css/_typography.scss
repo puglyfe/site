@@ -2,6 +2,12 @@
 // Typography
 // --------------------------------------------------
 
+@import 'modules/animation';
+@import 'modules/breakpoints';
+@import 'modules/colors';
+@import 'modules/fluid-typography';
+@import 'modules/type';
+
 html {
   @include fluid-type(font-size, map-get($breakpoints, 'xs'), map-get($breakpoints, 'lg'), 16px, 20px);
 }

@@ -1,3 +1,8 @@
+@import 'include-media';
+@import 'modules/animation';
+@import 'modules/colors';
+@import 'modules/settings';
+
 .project-card {
   background: $color-white;
   color: $color-white;
@@ -23,7 +28,7 @@
 
     .bio-active & {
       &:nth-of-type(#{$i}) {
-        transform: translateY((60 + ((40 / $project-count) * ($i - 1))) * 1%);
+        transform: translateY((80 + ((20 / $project-count) * ($i - 1))) * 1%);
 
         @include media('>=md') {
           transform: translate(((100 / $project-count) * ($i - 1)) * 1%, 60%);
@@ -181,12 +186,21 @@
       width: calc(33.33333% - 60px);
     }
 
+    @include media('>=lg') {
+      width: calc(33.33333% - 60px);
+    }
+
     .project-card--open & {
       height: auto;
 
       @include media('>=md') {
-        height: calc(100% - 60px);
         position: fixed;
+        height: calc(100% - 60px);
+        width: calc(33.33333% - 60px);
+      }
+
+      @include media('>=md', '<lg') {
+        width: calc(50% - 60px);
       }
     }
   }
@@ -230,14 +244,19 @@
   &__image-container {
     @include media('>=md') {
       height: 100%;
-      margin-left: 33.33333%;
+      margin-left: 50%;
       opacity: 0;
-      width: 66.66667%;
+      width: 50%;
       transition: opacity $animation-med $easing-default;
 
       .project-card--open & {
         opacity: 1;
       }
+    }
+
+    @include media('>=lg') {
+      margin-left: 33.33333%;
+      width: 66.66667%;
     }
   }
 

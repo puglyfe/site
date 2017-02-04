@@ -3,19 +3,12 @@
 // --------------------------------------------------
 
 @import 'normalize/import-now';
-@import 'include-media';
 
 //
-// Mixins
+// Utilities
 // --------------------------------------------------
 
-@import 'mixins';
-
-//
-// Settings
-// --------------------------------------------------
-
-@import 'settings';
+@import 'modules/responsive-visibility';
 
 //
 // Typography

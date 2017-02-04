@@ -1,0 +1,51 @@
+// This mixin takes the $breakpoints map and creates
+// a set of responsive visibility classes ala Bootstrap
+// hide-sm, visible-md-block, etc
+// http://codepen.io/puglyfe/pen/GjQXXm
+
+@import 'include-media';
+@import 'modules/breakpoints';
+
+$breakpoints-count: length($breakpoints);
+
+@for $i from 1 through $breakpoints-count {
+  $bp: nth(map-keys($breakpoints), $i);
+  $next-bp: if($i < $breakpoints-count, nth(map-keys($breakpoints), $i + 1), null);
+  $display-modes: inline inline-block block;
+
+  .hide-#{$bp} {
+    @if $i == 1 {
+      @include media('<#{$next-bp}') {
+        display: none;
+      }
+    } @else if $i == $breakpoints-count {
+      @include media('>=#{$bp}') {
+        display: none;
+      }
+    } @else {
+      @include media('>=#{$bp}', '<#{$next-bp}') {
+        display: none;
+      }
+    }
+  }
+
+  @each $display-mode in $display-modes {
+    .show-#{$bp}-#{$display-mode} {
+      display: none;
+
+      @if $i == 1 {
+        @include media('<#{$next-bp}') {
+          display: $display-mode;
+        }
+      } @else if $i == $breakpoints-count {
+        @include media('>=#{$bp}') {
+          display: $display-mode;
+        }
+      } @else {
+        @include media('>=#{$bp}', '<#{$next-bp}') {
+          display: $display-mode;
+        }
+      }
+    }
+  }
+}

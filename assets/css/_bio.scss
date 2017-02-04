@@ -1,3 +1,7 @@
+@import 'include-media';
+@import 'modules/animation';
+@import 'modules/colors';
+
 .bio {
   color: $color-white;
   display: flex;
@@ -5,7 +9,9 @@
   justify-content: center;
 
   &__title {
-    font-size: 2.4rem;
+    @include media('>=md') {
+      font-size: 2.4rem;
+    }
   }
 
   &__contact {

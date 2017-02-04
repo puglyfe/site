@@ -96,11 +96,15 @@ $refs.contextToggle.click ->
 
     $refs.body.addClass('bio-active')
 
-    TweenLite.to(
-      $refs.projectTitle,
-      animationProps.duration.med,
-      { top: $refs.projectInfo.css('padding-top') }
-    )
+    # TweenLite.to(
+    #   $refs.projectTitle,
+    #   animationProps.duration.med,
+    #   { top: $refs.projectInfo.css('padding-top') }
+    # )
 
 $refs.email.click ->
-  window.location.href = 'mailto:ctpugmire@gmail.com'
+  $this = $(this)
+  window.location.href = 'mailto:' + [
+    $this.attr('data-user'),
+    $this.attr('data-domain')
+  ].join('@')
