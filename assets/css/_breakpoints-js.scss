@@ -2,7 +2,7 @@
 @import 'modules/breakpoints';
 @import 'modules/hide-text';
 
-body {
+html {
   &::before {
     $content: '';
     content: $content;

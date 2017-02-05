@@ -23,12 +23,17 @@ $refs = Object.keys(selectors).reduce(((obj, current) ->
   obj
 ), {})
 
-init = ->
-  TweenLite.set(
-    $refs.projectTitle,
-    { left: '50%', top: '50%', x: '-50%', y: '-50%' }
-  )
+# Query th
+breakpoints = {
+  getActive: () ->
+    return window.getComputedStyle(
+      document.querySelector('html'), ':before'
+    )
+    .getPropertyValue('content').replace(/\"/g, '')
+    .split('|');
+}
 
+init = ->
   # for lolz
   console.log([
     '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥',
@@ -41,15 +46,6 @@ bindEscape = ->
     if (e.keyCode == 27)
       $refs.contextToggle.click()
       $(document).off 'keyup.attachEscape'
-
-breakpoints = {
-  getActive: () ->
-    return window.getComputedStyle(
-      document.querySelector('body'), ':before'
-    )
-    .getPropertyValue('content').replace(/\"/g, '')
-    .split('|');
-}
 
 $refs.projectTitle.click ->
   $title = $(this)
