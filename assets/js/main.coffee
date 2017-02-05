@@ -23,23 +23,40 @@ $refs = Object.keys(selectors).reduce(((obj, current) ->
   obj
 ), {})
 
-TweenLite.set(
-  $refs.projectTitle,
-  { left: '50%', top: '50%', x: '-50%', y: '-50%' }
-)
+init = ->
+  TweenLite.set(
+    $refs.projectTitle,
+    { left: '50%', top: '50%', x: '-50%', y: '-50%' }
+  )
 
-bindEscape = () ->
+  # for lolz
+  console.log([
+    '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥',
+    '🔥 hello@charleypugmire.me 🔥',
+    '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥'
+  ].join('\n'))
+
+bindEscape = ->
   $(document).on 'keyup.attachEscape', (e) ->
     if (e.keyCode == 27)
       $refs.contextToggle.click()
       $(document).off 'keyup.attachEscape'
+
+breakpoints = {
+  getActive: () ->
+    return window.getComputedStyle(
+      document.querySelector('body'), ':before'
+    )
+    .getPropertyValue('content').replace(/\"/g, '')
+    .split('|');
+}
 
 $refs.projectTitle.click ->
   $title = $(this)
   $project = $title.closest(selectors.project)
   $info = $title.closest(selectors.projectInfo)
 
-  handleResize = () ->
+  handleResize = ->
     infoStyles = window.getComputedStyle($info.get(0))
     offset = {
       top: infoStyles.getPropertyValue('padding-top'),
@@ -96,11 +113,12 @@ $refs.contextToggle.click ->
 
     $refs.body.addClass('bio-active')
 
-    # TweenLite.to(
-    #   $refs.projectTitle,
-    #   animationProps.duration.med,
-    #   { top: $refs.projectInfo.css('padding-top') }
-    # )
+    if breakpoints.getActive().indexOf('md') > -1
+      TweenLite.to(
+        $refs.projectTitle,
+        animationProps.duration.med,
+        { top: $refs.projectInfo.css('padding-top') }
+      )
 
 $refs.email.click ->
   $this = $(this)
@@ -108,3 +126,5 @@ $refs.email.click ->
     $this.attr('data-user'),
     $this.attr('data-domain')
   ].join('@')
+
+init()

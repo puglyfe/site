@@ -1,0 +1,21 @@
+@import 'include-media';
+@import 'modules/breakpoints';
+@import 'modules/hide-text';
+
+body {
+  &::before {
+    $content: '';
+    content: $content;
+    @include hide-text;
+
+    @each $bp, $px in $breakpoints {
+      @include media('>=#{$bp}') {
+        @if index($breakpoints, $bp $px) != 1 {
+          $bp: '|' + $bp;
+        }
+        $content: $content + $bp;
+        content: $content;
+      }
+    }
+  }
+}

@@ -76,14 +76,13 @@ gulp.task('build', function () {
   );
 });
 
-
 gulp.task('build:js', function() {
   return gulp.src(assetsDir + '/js/main.coffee', { read: false })
     .pipe($.browserify({
       transform: ['coffeeify'],
       extensions: ['.coffee']
     }))
-    .pipe($.uglify({
+    .pipe($.if(isProduction, $.uglify({
       mangle: true,
       compress: {
         sequences: true,
@@ -97,7 +96,7 @@ gulp.task('build:js', function() {
         join_vars: true,
         drop_console: false
       }
-    }))
+    })))
     .pipe($.rename('build.js'))
     .pipe(gulp.dest(buildDir + '/js'))
 });
@@ -139,7 +138,7 @@ gulp.task('build:templates', function () {
         data: require('./data/data.json'),
         social: require('./data/social.json')
       },
-      pretty: true
+      pretty: isProduction ? false : true
     }))
     .pipe(gulp.dest(buildDir));
 });
