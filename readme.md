@@ -1,5 +1,7 @@
 # charleypugmire.me
 
+[http://charleypugmire.me](http://charleypugmire.me/)
+
 This is a site about me.
 
 It's built with:
@@ -11,3 +13,5 @@ It's built with:
 - [browserify](http://browserify.org/)
 - [gitlab](http://gitlab.com/)
 - + many others
+
+Take a look around and enjoy.

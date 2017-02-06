@@ -1,5 +1,6 @@
-$ = require('zepto-browserify').$
-TweenLite = require('gsap')
+$                 = require('zepto-browserify').$
+attachFastclick   = require('fastclick')
+TweenLite         = require('gsap')
 
 selectors = {
   body: 'body',
@@ -34,12 +35,16 @@ breakpoints = {
 }
 
 init = ->
+  attachFastclick(document.body)
+
   # for lolz
   console.log([
     '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥',
     '🔥 hello@charleypugmire.me 🔥',
     '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥'
   ].join('\n'))
+
+  console.log('💻 %cSource:', 'font-weight:bold', 'http://github.com/puglyfe/site 💻')
 
 bindEscape = ->
   $(document).on 'keyup.attachEscape', (e) ->

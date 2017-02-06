@@ -57,7 +57,7 @@ gulp.task('clean', function() {
 // -----------------------------------------------------------------------------
 
 gulp.task('copy', function () {
-  return gulp.src(['./data'])
+  return gulp.src(['./data', './favicon.ico'])
     .pipe(gulp.dest(buildDir));
 });
 

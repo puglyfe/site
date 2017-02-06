@@ -1,11 +1,17 @@
 {
   "name": "charleypugmire.me",
-  "description": "A site built with roots.",
+  "description": "A site about me.",
   "dependencies": {
+    "fastclick": "^1.0.6",
+    "gsap": "^1.19.1",
+    "include-media": "^1.4.9",
+    "normalize-scss": "^6.0.0",
+    "zepto-browserify": "^1.0.0"
+  },
+  "devDependencies": {
     "browser-sync": "^2.18.7",
     "coffeeify": "^2.1.0",
     "del": "^2.2.2",
-    "gsap": "^1.19.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-browserify": "^0.5.1",
@@ -20,10 +26,10 @@
     "gulp-task-listing": "^1.0.1",
     "gulp-uglify": "^2.0.1",
     "gulp-util": "^3.0.8",
-    "include-media": "^1.4.9",
-    "normalize-scss": "^6.0.0",
     "run-sequence": "^1.2.2",
-    "yargs": "^6.6.0",
-    "zepto-browserify": "^1.0.0"
+    "yargs": "^6.6.0"
+  },
+  "scripts": {
+    "start": "gulp serve"
   }
 }

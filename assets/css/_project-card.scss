@@ -55,6 +55,11 @@
     .project-card--open & {
       min-height: 100%;
       overflow: auto;
+      -webkit-overflow-scrolling: touch;
+
+      @include media('>=md') {
+        overflow: hidden;
+      }
     }
   }
 
@@ -254,6 +259,8 @@
 
       .project-card--open & {
         opacity: 1;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
       }
     }
 
