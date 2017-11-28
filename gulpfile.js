@@ -25,8 +25,7 @@ var config = {
       baseDir: './public'
     },
     logConnections: true,
-    open: 'external',
-    xip: true
+    open: 'external'
   },
 };
 
