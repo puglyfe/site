@@ -24,7 +24,6 @@ $refs = Object.keys(selectors).reduce(((obj, current) ->
   obj
 ), {})
 
-# Query th
 breakpoints = {
   getActive: () ->
     return window.getComputedStyle(
@@ -39,9 +38,9 @@ init = ->
 
   # for lolz
   console.log([
-    '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥',
-    '🔥 hello@charleypugmire.me 🔥',
-    '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥'
+    '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥',
+    '🔥 ctpugmire@gmail.com 🔥',
+    '🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥'
   ].join('\n'))
 
   console.log('💻 %cSource:', 'font-weight:bold', 'http://github.com/puglyfe/site 💻')
@@ -121,6 +120,7 @@ $refs.contextToggle.click ->
         { top: $refs.projectInfo.css('padding-top') }
       )
 
+# Half-assed attempt to work around botz
 $refs.email.click ->
   $this = $(this)
   window.location.href = 'mailto:' + [
